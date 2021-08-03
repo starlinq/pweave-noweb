@@ -71,7 +71,7 @@ The typical approach for creating user build command is to divide it into multip
 
 3. The third command name is `pweave-deactivate:pweave-deactivate` and its command line is `C:\Users\yourusername\anaconda3\condabin\conda.bat deactivate`.
 
-4. The final command will be `pweave-comple:pweave-compile` and `txs:///pweave-activate | txs:///pweave | txs:///pdflatex | txs:///pdflatex | txs:///pweave-deactivate`. Now we can use it from menu or keyboard shortcut command (which assigned automatically upon creation of the user command).
+4. The final command will be `pweave-compile:pweave-compile` and `txs:///pweave-activate | txs:///pweave | txs:///pdflatex | txs:///pdflatex | txs:///pweave-deactivate`. Now we can use it from menu or keyboard shortcut command (which assigned automatically upon creation of the user command).
 
 Another approach is: we can combine all the commands above into single batch file for Windows OS (named as `build.bat` for reference):
 
