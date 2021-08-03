@@ -71,7 +71,7 @@ The second command name is `pweave:pweave` and command line is `C:\Users\youruse
 
 The third command name is `pweave-deactivate:pweave-deactivate` and its command line is `C:\Users\yourusername\anaconda3\condabin\conda.bat deactivate`.
 
-The final command will be `pweave-comple:pweave-compile` and `txs:///pweave-activate | txs:///pweave | txs:///pdflatex | txs:///pdflatex | txs:///pweave-deactivate`. 
+The final command will be `pweave-comple:pweave-compile` and `txs:///pweave-activate | txs:///pweave | txs:///pdflatex | txs:///pdflatex | txs:///pweave-deactivate`. Now we can use it from menu or keyboard shortcut command (which assigned automatically upon creation of the user command).
 
 Another approach is: we can combine all the commands above into single batch file for Windows OS (named as `build.bat` for reference):
 
