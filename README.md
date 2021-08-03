@@ -1,6 +1,6 @@
 # Writing paper, report or presentation using Pweave noweb syntax
 
-As soon as you know, at least to some reasoble extent, a power of LaTeX, you can extend its capabilities even to higher level. One of possible ideas is to integrate some code into your publication according to concept of literate programming.
+As soon as you know, at least to some reasonable extent, a power of LaTeX, you can extend its capabilities even to higher level. One of possible ideas is to integrate some code into your publication according to concept of literate programming.
 
 There are many ways to do that in practice. In first, I would like to introduce you a way of integrating a Python code into LaTeX document. In second, we will talk about tools which can help us to impelement all the ideas.
 
