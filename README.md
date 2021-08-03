@@ -48,7 +48,7 @@ A purpose of the following list is to describe Pweave-aware editors:
 
 Each editor has own specifics relating to Pweave syntax highlighting. The TeXstudio has no problem with Pweave inline code insertions into inline math equations of `$ $` syntax style (e.g. ` $ x= <%= x %> $`). 
 
-Example of Pweave file opening in the TeXstudio is presented below: 
+Example of Pweave file opening and compiling in the TeXstudio is presented below: 
 
 ![ieeeaccess-pweave](https://user-images.githubusercontent.com/2492702/127107496-e10bc981-79bb-47e7-b52a-663ed6f5e239.png)
 
@@ -138,7 +138,7 @@ There is an issue with .Pnw file compilation using atom-latex package. The packa
             resolve()
 ```
 
-Example of Pweave file opening in the Atom is presented below:
+Example of Pweave file opening and compiling in the Atom is presented below:
 
 ![access_pweave_atom](https://user-images.githubusercontent.com/2492702/127945452-293e29bd-0693-4962-9230-9ef9ec308e48.png)
 
