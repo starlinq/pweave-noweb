@@ -63,6 +63,8 @@ In TeXstudio we can create an user command.
 
 To setup the user command, go to Options > Configure TeXstudio ... then select Build tab on the left. On the right pane you will see User Commands group which consists of two input fields where the leftmost is for the name of command.
 
+The typical approach for creating user build command is to divide it into multiple commands which are required for complete task. 
+
 Lets set it for the first command `pweave-activate:pweave-activate`. The next input field we have to populate with actual command: `"C:\Users\yourusername\anaconda3\Scripts\activate.bat" pweave` (for Windows OS). Here we activate previously created 'pweave' environment.
 
 The second command name is `pweave:pweave` and command line is `C:\Users\yourusername\anaconda3\envs\pweave\Scripts\pweave -f tex %.Pnw`. 
@@ -71,7 +73,7 @@ The third command name is `pweave-deactivate:pweave-deactivate` and its command 
 
 The final command will be `pweave-comple:pweave-compile` and `txs:///pweave-activate | txs:///pweave | txs:///pdflatex | txs:///pdflatex | txs:///pweave-deactivate`. 
 
-For Windows OS, we can combine all the commands above into single batch file (named as `build.bat` for reference):
+Another approach is: we can combine all the commands above into single batch file for Windows OS (named as `build.bat` for reference):
 
 ```batch
 @echo off
