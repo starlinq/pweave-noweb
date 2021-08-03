@@ -27,6 +27,10 @@ from numpy import pi, linspace, sqrt, sin
 
 Both chunk code and inline code markers will not be included in weaved document.
 
+To complete this tutorial, the software installation requirements are:
+1. LaTeX installation (e.g. TeXlive)
+2. Python installation (e.g. Anaconda distribution)
+   - Pweave package 
 
 If we do not consider Python installation steps, the next step is its configuration for processing Pweave documents. As base we will take a well-known Anaconda Python distribution. A typically recommended way is to create a virtual environment for running Python code:
 
