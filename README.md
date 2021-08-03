@@ -123,6 +123,21 @@ In Atom a configuration for user command depends on used LaTeX extension. Here w
 
 The current syntax highlighter does not support inline Pweave code in inline math expressions as `$ x= <%= x %> $`. A workaround is to use an alternative markup of the inline math as `\begin{math} x= <%= x %> \end{math}`.
 
+There is an issue with .Pnw file compilation using atom-latex package. The package does not recognize them as valid LaTeX files. To fix the issue, in package local installation folder I just changed one line to the `main.coffee` file:
+
+```coffee
+@disposables.add atom.workspace.observeTextEditors (editor) =>
+      return if @activated
+      editor.observeGrammar (grammar) =>
+        if (grammar.packageName is 'atom-latex') or
+           ((grammar.scopeName.indexOf('text.tex.latex') > -1) or
+            (grammar.scopeName.indexOf('source.pweave.latex') > -1)) or
+           (grammar.name is 'LaTeX')
+          promise = new Promise (resolve, reject) =>
+            setTimeout(( => @lazyLoad()), 100)
+            resolve()
+```
+
 Example of Pweave file opening in the Atom is presented below:
 
 ![access_pweave_atom](https://user-images.githubusercontent.com/2492702/127945452-293e29bd-0693-4962-9230-9ef9ec308e48.png)
