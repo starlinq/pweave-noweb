@@ -67,6 +67,10 @@ Lets set it for the first command `pweave-activate:pweave-activate`. The next in
 
 The second command name is `pweave:pweave` and command line is `C:\Users\yourusername\anaconda3\envs\pweave\Scripts\pweave -f tex %.Pnw`. 
 
+The third command name is `pweave-deactivate:pweave-deactivate` and its command line is `C:\Users\yourusername\anaconda3\condabin\conda.bat deactivate`.
+
+The final command will be `pweave-comple:pweave-compile` and `txs:///pweave-activate | txs:///pweave | txs:///pdflatex | txs:///pdflatex | txs:///pweave-deactivate`. 
+
 For Windows OS, we can combine all the commands above into single batch file (named as `build.bat` for reference):
 
 ```batch
