@@ -65,6 +65,8 @@ To setup the user command, go to Options > Configure TeXstudio ... then select B
 
 Lets set it for the first command `pweave-activate:pweave-activate`. The next input field we have to populate with actual command: `"C:\Users\yourusername\anaconda3\Scripts\activate.bat" pweave` (for Windows OS). Here we activate previously created 'pweave' environment.
 
+The second command name is `pweave:pweave` and command line is `C:\Users\yourusername\anaconda3\envs\pweave\Scripts\pweave -f tex %.Pnw`. 
+
 For Windows OS, we can combine all the commands above into single batch file (named as `build.bat` for reference):
 
 ```batch
