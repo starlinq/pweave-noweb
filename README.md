@@ -44,7 +44,7 @@ If we exclude from our consideration very basic editors (which do not have a syn
 
 A purpose of the following list is to describe Pweave-aware editors:
 * [TeXstudio](https://www.texstudio.org/) (a great editor with long history of development, supports Pweave .Pnw files from default including syntax highlighting, with user command we can create commands to compile Pweave file to PDF)
-* [Atom](https://atom.io/) with [Atom-LaTeX](https://atom.io/packages/atom-latex) or other LaTeX supporting package, language-weave extensions (gives a syntax highlighting)
+* [Atom](https://atom.io/) with [Atom-LaTeX](https://atom.io/packages/atom-latex) or other LaTeX supporting package, [language-weave](https://atom.io/packages/language-weave) extensions (gives a syntax highlighting)
 
 Each editor has own specifics relating to Pweave syntax highlighting. The TeXstudio has no problem with Pweave inline code insertions into inline math equations of `$ $` syntax style (e.g. ` $ x= <%= x %> $`). 
 
