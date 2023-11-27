@@ -29,8 +29,8 @@ Both chunk code and inline code markers will not be included in weaved document.
 
 To complete this tutorial, the software installation requirements are:
 1. LaTeX (e.g. TeXlive)
-2. Python (e.g. Anaconda distribution, or regular Python with virtual environment support like the `venv`)
-   - Pweave package (tested with Python versions 3.6, 3.7 and 3.9; issues with version 3.8 have been fixed so it is okay now)
+2. Python (e.g. Anaconda distribution)
+   - Pweave package (tested with Python versions 3.6, 3.7 and 3.9; version 3.8 has some issues with Pweave so it is not recommended)
 3. Editor (which supports a syntax highlighting and custom builds)
 
 If we do not consider Python installation steps, the next step is its configuration for processing Pweave documents. As base we will take a well-known Anaconda Python distribution. A typically recommended way is to create a virtual environment for running Python code:
@@ -48,8 +48,8 @@ We specified Python version 3.6, if we do not do this, the latest version will b
 If we exclude from our consideration very basic editors (which do not have a syntax highlighting or other conviniences), currently not some many tools are available if you want to write your Pweave document with some extra help from editor.
 
 A purpose of the following list is to describe Pweave-aware editors:
-* As Atom editor has been sunset, a new community-led project, a [Pulsar](https://pulsar-edit.dev/) has been created, which is built upon the legacy of the Atom text editor. All the references since now will be related to the Pulsar, and, fortunately, a majority of the former Atom packages are still operating so important packages [Atom-LaTeX](https://web.pulsar-edit.dev/packages/atom-latex) and [language-weave](https://web.pulsar-edit.dev/packages/language-weave) are still in use.
 * [TeXstudio](https://www.texstudio.org/) (a great editor with long history of development, supports Pweave .Pnw files from default including syntax highlighting, with user command we can create commands to compile Pweave file to PDF)
+* [Atom](https://atom.io/) with [atom-latex](https://atom.io/packages/atom-latex) or other LaTeX supporting package, [language-weave](https://atom.io/packages/language-weave) extensions (gives a syntax highlighting) UPDATE. As Atom editor has been sunset, a new community-led project, a [Pulsar](https://pulsar-edit.dev/) has been created, the Pulsar is built upon the legacy of the Atom text editor.
 
 Each editor has own specifics relating to Pweave syntax highlighting. The TeXstudio has no problem with Pweave inline code insertions into inline math equations of `$ $` syntax style (e.g. ` $ x= <%= x %> $`).
 
