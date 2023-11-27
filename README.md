@@ -51,18 +51,50 @@ A purpose of the following list is to describe Pweave-aware editors:
 * As Atom editor has been sunset, a new community-led project, a [Pulsar](https://pulsar-edit.dev/) has been created, which is built upon the legacy of the Atom text editor. All the references since now will be related to the Pulsar, and, fortunately, a majority of the former Atom packages are still operating so important packages [Atom-LaTeX](https://web.pulsar-edit.dev/packages/atom-latex) and [language-weave](https://web.pulsar-edit.dev/packages/language-weave) are still in use.
 * [TeXstudio](https://www.texstudio.org/) (a great editor with long history of development, supports Pweave .Pnw files from default including syntax highlighting, with user command we can create commands to compile Pweave file to PDF)
 
-Each editor has own specifics relating to Pweave syntax highlighting. The TeXstudio has no problem with Pweave inline code insertions into inline math equations of `$ $` syntax style (e.g. ` $ x= <%= x %> $`).
-
-Example of Pweave file opening and compiling in the TeXstudio is presented below:
-
-![ieeeaccess-pweave](https://user-images.githubusercontent.com/2492702/127107496-e10bc981-79bb-47e7-b52a-663ed6f5e239.png)
-
-[[https://github.com/starlinq/images/blob/27b19d39193e73faa2a70f731b41322939f4ee3e/ieeeaccess-pweave.png]]
-
+Each editor has own specifics relating to Pweave syntax highlighting which will be noted in corresponding editor-related subsections.
 
 
 
 ## Setting up a build command for editor
+
+### Pulsar
+
+In Pulsar a configuration for user command depends on used LaTeX extension. Here we are going to use the [Atom-LaTeX](https://web.pulsar-edit.dev/packages/atom-latex). The package user configuration can be set by `.latexcfg` file in project directory:
+
+```
+{
+"root": "yourfilename.Pnw",
+"toolchain": "build.bat %DOC.%EXT",
+"latex_ext": [".Pnw", ".pnw", ".texw", ".tex"]
+}
+```
+
+The current syntax highlighter does not support inline Pweave code in inline math expressions as `$ x= <%= x %> $`. A workaround is to use an alternative markup of the inline math as `\begin{math} x= <%= x %> \end{math}`.
+
+There is an issue with `.Pnw` file compilation using atom-latex package. The package does not recognize them as valid LaTeX files. All story is [here](https://github.com/ashthespy/Atom-LaTeX/issues/278). To fix the issue, in package local installation folder I just changed one line in the `main.coffee` file of the following code fragment:
+
+```coffee
+@disposables.add atom.workspace.observeTextEditors (editor) =>
+      return if @activated
+      editor.observeGrammar (grammar) =>
+        if (grammar.packageName is 'atom-latex') or
+           ((grammar.scopeName.indexOf('text.tex.latex') > -1) or
+            (grammar.scopeName.indexOf('source.pweave.latex') > -1)) or
+           (grammar.name is 'LaTeX')
+          promise = new Promise (resolve, reject) =>
+            setTimeout(( => @lazyLoad()), 100)
+            resolve()
+```
+
+Example of Pweave file opening and compiling in the Atom is presented below:
+
+![access_pweave_atom](https://user-images.githubusercontent.com/2492702/127945452-293e29bd-0693-4962-9230-9ef9ec308e48.png)
+
+[[https://github.com/starlinq/images/blob/28d38c9ae929150a1bf102b4d620af20ce728bc4/access_pweave_atom_.png]]
+
+### TeXstudio
+
+The TeXstudio has no problem with Pweave inline code insertions into inline math equations of `$ $` syntax style (e.g. ` $ x= <%= x %> $`).
 
 In TeXstudio we can create an user command.
 
@@ -116,35 +148,8 @@ CALL "%pathtoanaconda:"=%\condabin\conda.bat" deactivate
 echo "Complete"
 ```
 
-In Atom a configuration for user command depends on used LaTeX extension. Here we are going to use the [Atom-LaTeX](https://atom.io/packages/atom-latex). The package user configuration can be set by `.latexcfg` file in project directory:
+Example of Pweave file opening and compiling in the TeXstudio is presented below:
 
-```
-{
-"root": "yourfilename.Pnw",
-"toolchain": "build.bat %DOC.%EXT",
-"latex_ext": [".Pnw", ".pnw", ".texw", ".tex"]
-}
-```
+![ieeeaccess-pweave](https://user-images.githubusercontent.com/2492702/127107496-e10bc981-79bb-47e7-b52a-663ed6f5e239.png)
 
-The current syntax highlighter does not support inline Pweave code in inline math expressions as `$ x= <%= x %> $`. A workaround is to use an alternative markup of the inline math as `\begin{math} x= <%= x %> \end{math}`.
-
-There is an issue with .Pnw file compilation using atom-latex package. The package does not recognize them as valid LaTeX files. All story is [here](https://github.com/ashthespy/Atom-LaTeX/issues/278). To fix the issue, in package local installation folder I just changed one line in the `main.coffee` in the following file fragment:
-
-```coffee
-@disposables.add atom.workspace.observeTextEditors (editor) =>
-      return if @activated
-      editor.observeGrammar (grammar) =>
-        if (grammar.packageName is 'atom-latex') or
-           ((grammar.scopeName.indexOf('text.tex.latex') > -1) or
-            (grammar.scopeName.indexOf('source.pweave.latex') > -1)) or
-           (grammar.name is 'LaTeX')
-          promise = new Promise (resolve, reject) =>
-            setTimeout(( => @lazyLoad()), 100)
-            resolve()
-```
-
-Example of Pweave file opening and compiling in the Atom is presented below:
-
-![access_pweave_atom](https://user-images.githubusercontent.com/2492702/127945452-293e29bd-0693-4962-9230-9ef9ec308e48.png)
-
-[[https://github.com/starlinq/images/blob/28d38c9ae929150a1bf102b4d620af20ce728bc4/access_pweave_atom_.png]]
+[[https://github.com/starlinq/images/blob/27b19d39193e73faa2a70f731b41322939f4ee3e/ieeeaccess-pweave.png]]
