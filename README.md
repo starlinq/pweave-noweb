@@ -43,7 +43,7 @@ conda install -n pweave pygments
 conda install -n pweave numpy
 ```
 
-We specified Python version 3.6, if we do not do this, the latest version will be installed.
+We specified Python version 3.6 (I successfully tested it with version 3.10 as well), if we do not do this, the latest version will be installed.
 
 If we exclude from our consideration very basic editors (which do not have a syntax highlighting or other conviniences), currently not some many tools are available if you want to write your Pweave document with some extra help from editor.
 
